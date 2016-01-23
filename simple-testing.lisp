@@ -27,21 +27,3 @@
   `(defun ,name ,parameters
      (let ((*test-name* (append *test-name* (list ',name))))
        ,@body)))
-
-(deftest test-+ ()
-  (check
-    (= (+ 1 2) 3)
-    (= (+ 1 2 3) 6)
-    (= (+ -1 -3) -4)))
-
-(deftest test-* ()
-  (check
-    (= (* 2 2) 4)
-    (= (* 3 5) 15)))
-
-(deftest test-arithmetic ()
-  "Testing built in arithmetic operators."
-  (combine-results
-    (test-+)
-    (test-*)))
-
