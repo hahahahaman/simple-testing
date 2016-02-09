@@ -1,5 +1,6 @@
 (in-package :cl-user)
 (defpackage #:simple-testing.tests
+  (:nicknames :stest.tests)
   (:use #:cl #:simple-testing)
   (:export run-all-tests))
 
@@ -19,11 +20,19 @@
 (deftest test-arithmetic ()
   "Testing built in arithmetic operators."
   (combine-results
-    (test-+)
-    (test-*)))
+   (test-+)
+   (test-*)))
+
+(deftest test-failure ()
+  "Test that failure works."
+  (format t "~%Failure expect:~%")
+  (check
+    (eql 1 2)
+    (eql (equalp nil t) t)))
 
 (defun run-all-tests ()
-  (test-arithmetic))
+  (test-arithmetic)
+  (test-failure))
 
 ;;; Hooking into ASDF
 (defmethod asdf:perform ((o asdf:test-op)
