@@ -25,7 +25,7 @@
 
 (deftest test-failure ()
   "Test that failure works."
-  (format t "~%Failure expect:~%")
+  (format t "~%Failure expected:~%")
   (check
     (eql 1 2)
     (eql (equalp nil t) t)))

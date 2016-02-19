@@ -5,5 +5,4 @@
   (:use #:cl)
   (:export deftest
            check
-           combine-results
-           run-tests))
+           combine-results))
